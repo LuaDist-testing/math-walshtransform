@@ -1,15 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "math-walshtransform"
-version = "1.17-2"
+version = "1.18-0"
 -- LuaDist source
 source = {
-  tag = "1.17-2",
+  tag = "1.18-0",
   url = "git://github.com/LuaDist-testing/math-walshtransform.git"
 }
 -- Original source
 -- source = {
---    url = "http://cpansearch.perl.org/src/PJB/Math-WalshTransform-1.17/lua/WalshTransform.lua"
+-- 	url = "http://www.pjb.com.au/comp/lua/math-walshtransform-1.18.tar.gz",
+-- 	md5 = "f6d1f33156b0b9ae649e8119a05b731e"
 -- }
 description = {
    summary = "Fast Hadamard and Walsh Transforms",
@@ -33,4 +34,5 @@ build = {
    modules = {
       ["Math.WalshTransform"] = "WalshTransform.lua"
    },
+	copy_directories = { "doc", "test" }
 }

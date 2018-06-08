@@ -6,12 +6,8 @@
 --          modify it under the same terms as Lua5 itself.           --
 -- ----------------------------------------------------------------- --
 local M = {} -- public interface
-M.Version = '1.17'
-M.VersionDate = '12aug2010'
-
--- Example usage:
--- local WT = require 'WalshTransform'
--- H = WT.fht(a)
+M.Version = '1.18'
+M.VersionDate = '20150426'
 
 --------------------- infrastructure ----------------------
 local function warn(str)
@@ -68,7 +64,7 @@ function M.fht(a)
 	if k == n then
 		return mr
 	else
-		warn("WalshTransform::fht \$n = $n but must be power of 2\n")
+		warn("WalshTransform::fht n="..tostring(n).." but must be power of 2")
 		return false
 	end
 end
@@ -95,7 +91,7 @@ function M.fhtinv(a)
 	if k == n then
 		return mr;
 	else
-		warn "WalshTransform::fhtinv \$n = $n but must be power of 2\n";
+	 warn("WalshTransform::fhtinv n="..tostring(n).." but must be power of 2")
 		return false
 	end
 end
@@ -409,19 +405,13 @@ for example in software that monitors time-series data such as
 system or network administration data, share-price, currency,
 ecological, opinion poll, process management data, and so on.
 
-As from version 1.10, Math::WalshTransform uses C routines to perform
-the transforms. This runs 25 to 30 times faster than previous versions.
-
 Not yet included are multi-dimensional Hadamard and Walsh Transforms,
 conversion between Logical and Arithmetic Autocorrelation Functions,
 or conversion between the Walsh Power Spectrum and the Fourier Power Spectrum.
 
-Version 1.17
+Version 1.18
 
-=head1 SUBROUTINES
-
-Routines which take just one array as argument expect the array itself;
-those which take more than one array expect a list of references.
+=head1 FUNCTIONS
 
 =over 3
 
@@ -609,6 +599,15 @@ There exist linear transformations converting
 between Logical Convolution and the normal Arithmetic Convolution,
 and between the Walsh Power Spectrum and the normal Fourier Power Spectrum.
 
+=head1 INSTALLATION
+
+This module is available as a LuaRock:
+http://luarocks.org/modules/peterbillam/math-walshtransform
+
+Or, the source is available in
+http://cpansearch.perl.org/src/PJB/Math-WalshTransform-1.18/lua/
+for you to install by hand in your LUA_PATH
+
 =head1 AUTHOR
 
 Peter J Billam, www.pjb.com.au/comp/contact.html
@@ -654,6 +653,7 @@ Vol. AU-21 No. 3, June 1973, pp. 174-179
 =head1 SEE ALSO
 
  http://www.pjb.com.au/
+ http://www.pjb.com.au/comp/lua/WalshTransform.html
  http://search.cpan.org/perldoc?Math::WalshTransform
  Math::Evol    http://search.cpan.org/perldoc?Math::Evol
  Term::Clui    http://search.cpan.org/perldoc?Term::Clui
